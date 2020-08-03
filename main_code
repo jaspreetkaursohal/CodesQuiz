@@ -1,0 +1,165 @@
+from tkinter import *
+import random
+root = Tk()
+root.title("CodesQuiz")
+root.geometry("700x500")
+root.config(background='black')
+root.resizable(0,0)
+
+py_questions=["Find the output: \n var= 'Meow' * 2 * 3 \n print(var)","Find the output: \n x = 36 / 4 * (3 + 2) * 4 + 2 \n print(x)","def calculate (num1, num2=4): \n total = num1 * num2 \n print(total) \n calculate(5, 6)", "Find the output: \n listOne = [20, 40, 60, 80] \n listTwo = [20, 40, 60, 80] \n print(listOne == listTwo, listOne is listTwo)" ,"What is NOT a legal variable name?","What is the file extension for Python files?","Which operator can be used to compare two values?","Which of these is a dictionary?","What is the syntax to find the type of the variable or object in python?","age=input('Enter your age') \n new_age=20+age \n print(new_age) \n You enter - 15. What is the ouput?"]
+py_answers=[["MeowMeowMeowMeowMeowMeow","MeowMeowMeowMeowMeow","Error:Invalid Syntax","Meow23"],["182.0","78.0","78","182"],["20","30","24","Program is executed with an error"],["True True","True False","False False","False True"],["MyVariable","1MyVariable","my_variable","MyVariable_"],[".py",".pt",".pyth",".pyt"],["=","==","<>","><"],["Countries=(India, Canada)","Countries = {India, Canada}","Countries=[India, Canada]","Countries = {India:Delhi, Canada:Ottawa}"],["print(typeof(x))","print(typeOf(x))","print(type(x))","print(typeof x)"],["2015","35","Program is executed with an error","None of the above"]]
+c_questions=['A C++ program statements can be commented using:','Which method can be used to find the length of a string?','Which operator is used to add together two values?','Which header file lets us work with input and output objects?','How do you create a function in C++?','What is the correct way to create an object called myObj of MyClass?','Which statement is used to stop a loop?','What is the only function all C++ programs must contain?','What punctuation ends most lines of C++ code?','Which of the following is not a correct variable type?']
+c_answers=[['Single line comment','Multi line comment','Either (a) or (b)','Both (a) and (b)'],['getLength() ','len() ','length() ','getSize() '],['The & sign','The + sign','The * sign','None of the above'],['#include <inputstr>','> #include <stream>','#include <iosstring>','> #include <iostream> '],['functionName()','functionName.','functionName[]','(functionName)'],['class MyClass = new myObj(); ','class myObj = new MyClass();','MyClass myObj; ','new myObj = MyClass();'],['break','exit','stop','return'],['start()','system()','main()','program()'],['.',';',':','"'],['float','real','int','double']]
+
+list =['1','2','3','4','5','6','7','8','9','10']
+correct_ans_py=[0,0,1,1,1,0,1,3,2,2]
+correct_ans_c=[3,2,1,3,0,2,0,2,1,1]
+def cExplanation():
+    logo1.destroy()
+    title.destroy()
+    q2.destroy()
+    op5.destroy()
+    op6.destroy()
+    op7.destroy()
+    op8.destroy()
+    i=1
+    while(i<11):
+        c_questions = ['A C++ program statements can be commented using:','Which method can be used to find the length of a string?','Which operator is used to add together two values?','Which header file lets us work with input and output objects?','How do you create a function in C++?','What is the correct way to create an object called myObj of MyClass?','Which statement is used to stop a loop?','What is the only function all C++ programs must contain?','What punctuation ends most lines of C++ code?','Which of the following is not a correct variable type?']
+        c_answers=[['Single line comment','Multi line comment','Either (a) or (b)','Both (a) and (b)'],['getLength() ','len() ','length() ','getSize() '],['The & sign','The + sign','The * sign','None of the above'],['#include <inputstr>','#include <stream>','#include <iosstring>',' #include <iostream> '],['functionName()','functionName.','functionName[]','(functionName)'],['class MyClass = new myObj(); ','class myObj = new MyClass();','MyClass myObj; ','new myObj = MyClass();'],['break','exit','stop','return'],['start()','system()','main()','program()'],['.',';',':','"'],['float','real','int','double']]
+
+        question1=Label(root, text="Question "+": "+c_questions[i-1], background='magenta', font=('Comic sans MS',9))
+        question1.pack()
+        answer1=Label(root, text="-----------"+"Answer "+": "+"The correct answer is "+c_answers[i-1][correct_ans_c[i-1]]+"-----------",background='magenta',font=('Comic sans MS',11))
+        answer1.pack()
+        i+=1
+def pyExplanation():
+    logo1.destroy()
+    title.destroy()
+    q1.destroy()
+    op1.destroy()
+    op2.destroy()
+    op3.destroy()
+    op4.destroy()
+    i=1
+    while(i<11):
+        py_questions=["Find the output: var= 'Meow' * 2 * 3  print(var)","Find the output: x = 36 / 4 * (3 + 2) * 4 + 2  print(x)","def calculate (num1, num2=4):  total = num1 * num2 print(total)  calculate(5, 6)", "Find the output:  listOne = [20, 40, 60, 80] listTwo = [20, 40, 60, 80]  print(listOne == listTwo, listOne is listTwo)" ,"What is NOT a legal variable name?","What is the file extension for Python files?","Which operator can be used to compare two values?","Which of these is a dictionary?","What is the syntax to find the type of the variable or object in python?","age=input('Enter your age') new_age=20+age print(new_age) You enter - 15. What is the ouput?"]
+        py_answers=[["MeowMeowMeowMeowMeowMeow","MeowMeowMeowMeowMeow","Error:Invalid Syntax","Meow23"],["182.0","78.0","78","182"],["20","30","24","Program is executed with an error"],["True True","True False","False False","False True"],["MyVariable","1MyVariable","my_variable","MyVariable_"],[".py",".pt",".pyth",".pyt"],["=","==","<>","><"],["Countries=(India, Canada)","Countries = {India, Canada}","Countries=[India, Canada]","Countries = {India:Delhi, Canada:Ottawa}"],["print(typeof(x))","print(typeOf(x))","print(type(x))","print(typeof x)"],["2015","35","Program is executed with an error","None of the above"]]
+
+        question=Label(root, text="Question "+": "+py_questions[i-1], background='magenta', font=('Comic sans MS',9))
+        question.pack()
+        answer=Label(root, text="-----------"+"Answer "+": "+"The correct answer is "+py_answers[i-1][correct_ans_py[i-1]]+"-----------",background='magenta',font=('Comic sans MS',11))
+        answer.pack()
+        i+=1
+user_ans=[]
+ques=1
+def selectedPy():
+    global options1, user_ans,q1, op1,op2, op3, op4, ques
+    num=options1.get()
+    user_ans.append(num)
+    options1.set(-1)
+    if ques < 10:
+        q1.config(text=py_questions[index[ques]])
+        op1['text']=py_answers[index[ques]][0]
+        op2['text']=py_answers[index[ques]][1]
+        op3['text']=py_answers[index[ques]][2]
+        op4['text']=py_answers[index[ques]][3]
+        ques+=1
+    else:
+        pyExplanation()
+
+def selectedC():
+    global options2, user_ans,q2, op5,op6, op7, op8, ques
+    num=options2.get()
+    user_ans.append(num)
+    options2.set(-1)
+    if ques < 10:
+        q2.config(text=c_questions[index[ques]])
+        op5['text']=c_answers[index[ques]][0]
+        op6['text']=c_answers[index[ques]][1]
+        op7['text']=c_answers[index[ques]][2]
+        op8['text']=c_answers[index[ques]][3]
+        ques+=1
+    else:
+        cExplanation()
+
+def startCPlusPlus():
+    cplusplus.destroy()
+    python.destroy()
+    global options2, q2, op5, op6, op7, op8
+    q2=Label(root, text=c_questions[index[0]], font=('AR CENA',14), justify= 'center', wraplength = 400)
+    q2.place(relx=0.2, rely=0.4, relwidth=0.635, relheight=0.18)
+
+    options2=IntVar()
+    options2.set(-1)
+    op5 = Radiobutton(root,text= c_answers[index[0]][0], font=('Arial',11),value=0, variable = options2, command=selectedC)
+    op5.place(relx=0.3, rely=0.6, relwidth=0.435, relheight=0.08)
+    op6 = Radiobutton(root,text=c_answers[index[0]][1], font=('Arial',11),value=1, variable = options2, command=selectedC)
+    op6.place(relx=0.3, rely=0.7, relwidth=0.435, relheight=0.08)
+    op7 = Radiobutton(root,text= c_answers[index[0]][2],font=('Arial',11), value=2, variable = options2, command=selectedC)
+    op7.place(relx=0.3, rely=0.8, relwidth=0.435, relheight=0.08)
+    op8 = Radiobutton(root,text= c_answers[index[0]][3], font=('Arial',11), value=3, variable = options2, command=selectedC)
+    op8.place(relx=0.3, rely=0.9, relwidth=0.435, relheight=0.08)
+
+
+def startPython():
+    python.destroy()
+    cplusplus.destroy()
+
+    global options1, q1, op1, op2, op3, op4
+    q1=Label(root, text=py_questions[index[0]], font=('AR CENA',14), justify= 'center', wraplength = 400)
+    q1.place(relx=0.2, rely=0.4, relwidth=0.635, relheight=0.18)
+
+    options1=IntVar()
+    options1.set(-1)
+    op1 = Radiobutton(root,text= py_answers[index[0]][0], font=('Arial',11),value=0, variable = options1, command=selectedPy)
+    op1.place(relx=0.3, rely=0.6, relwidth=0.435, relheight=0.08)
+    op2 = Radiobutton(root,text=py_answers[index[0]][1], font=('Arial',11),value=1, variable = options1, command=selectedPy)
+    op2.place(relx=0.3, rely=0.7, relwidth=0.435, relheight=0.08)
+    op3 = Radiobutton(root,text= py_answers[index[0]][2],font=('Arial',11), value=2, variable = options1, command=selectedPy)
+    op3.place(relx=0.3, rely=0.8, relwidth=0.435, relheight=0.08)
+    op4 = Radiobutton(root,text= py_answers[index[0]][3], font=('Arial',11), value=3, variable = options1, command=selectedPy)
+    op4.place(relx=0.3, rely=0.9, relwidth=0.435, relheight=0.08)
+
+
+def giveChoice():
+    global python, cplusplus
+    python=Button(root, text='Python',command=startPython, background='white',font=('Times',16))
+    python.place(relx=0.15,rely=0.4,relheight=0.1, relwidth=0.3)
+    cplusplus=Button(root, text='C++', command=startCPlusPlus, background='white',font=('Times',16))
+    cplusplus.place(relx=0.55,rely=0.4,relheight=0.1, relwidth=0.3)
+
+index=[]
+def randomGen():
+    global index
+    while len(index)<10:
+        randomNumber=random.randint(0,9)
+        if randomNumber in index:
+            continue
+        else:
+            index.append(randomNumber)
+
+def pressStart():
+    start_game.destroy()
+    startButton.destroy()
+    instructions.destroy()
+    help.destroy()
+    randomGen()
+    giveChoice()
+
+logoImg = PhotoImage(file='logo.png')
+logo1 = Label(root, image=logoImg, background="black")
+logo1.pack()
+title = Label(root, text='CodesQuiz', font=('Comic sans MS', 20), background='red')
+title.pack()
+help = Label(root, text='Check rules below and start the game.', font=('Comic sans MS', 17), background='light blue')
+help.place(relx=0.20, rely=0.35, relwidth=0.59, relheight=0.10)
+startImg=PhotoImage(file="start.png")
+start_game=Label(root, image=startImg, background='black')
+start_game.place(relx=0.75, rely=0.55, relwidth=0.3, relheight=0.15)
+startButton=Button(root, text='Start Quiz', command=pressStart, font=('Comic sans ms', 20), background='red')
+startButton.place(relx=0.55, rely=0.55, relwidth=0.25, relheight=0.15)
+instructions=Label(root,text="A series of coding questions will be asked about Python/C++. \n Out of the 4 options provided, choose one.\n Irrespective of whether your answer is right or wrong,\n the answers will be provided. Learn and Enjoy!", font=('Comic sans ms', 14), background='light blue')
+instructions.pack(side='bottom')
+
+
+root.mainloop()
